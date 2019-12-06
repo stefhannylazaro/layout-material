@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-extra-pipe',
   templateUrl: './extra-pipe.component.html',
-  styleUrls: ['./extra-pipe.component.css']
+  styleUrls: ['./extra-pipe.component.scss']
 })
 export class ExtraPipeComponent implements OnInit {
   public fecha:object;
