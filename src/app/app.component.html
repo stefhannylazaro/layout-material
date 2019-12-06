@@ -1,10 +1,29 @@
-<!-- <h3>Raised Buttons</h3>
-<div class="example-button-row">
-  <button mat-raised-button>Basic</button>
-  <button mat-raised-button color="primary">Primary</button>
-  <button mat-raised-button color="accent">Accent</button>
-  <button mat-raised-button color="warn">Warn</button>
-  <button mat-raised-button disabled>Disabled</button>
-  <a mat-raised-button routerLink=".">Link</a>
-</div> -->
-<app-extra-pipe></app-extra-pipe>
+<!-- <app-extra-pipe></app-extra-pipe> -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button (click)="drawer.toggle()">
+        <mat-icon aria-hidden="false">view_headline</mat-icon>
+    </button>
+    <span>APP</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+    <p>Auto-resizing sidenav</p>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <!-- <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle
+    </button> -->
+    <div fxLayout="row wrap">
+      <div fxFlex="50">
+        1
+      </div>
+      <div  fxFlex="50">
+        2
+      </div>
+    </div>
+  </mat-drawer-content>
+
+</mat-drawer-container>
