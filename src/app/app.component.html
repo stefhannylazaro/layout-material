@@ -1,22 +1,48 @@
 <!-- <app-extra-pipe></app-extra-pipe> -->
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-button (click)="drawer.toggle()">
-        <mat-icon aria-hidden="false">view_headline</mat-icon>
-    </button>
-    <span>APP</span>
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div>
+        <button mat-button (click)="drawer.toggle()">
+            <mat-icon aria-hidden="false">view_headline</mat-icon>
+        </button>
+        <span>APP</span>
+    </div>
+    <nav>
+        <ul fxLayout="row" class="menu-main">
+          <li>a</li>
+          <li>b</li>
+        </ul>
+    </nav>
   </mat-toolbar-row>
 </mat-toolbar>
+
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-    <p>Auto-resizing sidenav</p>
+    <div class="theme-block">
+      <h5 class="title-sidenav px-16">THEMES</h5>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let link of linksTheme">
+          <a matLine href="javascript:void(0)">{{ link.text }}</a>
+          <button mat-icon-button>
+              <mat-icon>{{link.icon}}</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="categories-block px-16">
+      <h5 class="title-sidenav">THEMES</h5>
+      <mat-select [formControl]="categorie">
+        <mat-option *ngFor="let categorie of categories" [value]="categorie.value">
+              {{categorie.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <mat-divider></mat-divider>
   </mat-drawer>
 
   <mat-drawer-content>
-    <!-- <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle
-    </button> -->
-    <div fxLayout="row wrap">
+    <div fxLayout="row wrap" fxLayout.xs="column">
       <div fxFlex="50">
         1
       </div>

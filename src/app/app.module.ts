@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ExtraPipeComponent } from './components/extra-pipe/extra-pipe.component';
 import { AddNumberPipe } from './pipes/add-number.pipe';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
