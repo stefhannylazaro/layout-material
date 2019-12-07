@@ -9,9 +9,19 @@
 </mat-toolbar>
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-    <p>Auto-resizing sidenav</p>
+    <div class="block-themes">
+      <h5 class="title-sidenav">THEME</h5>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let theme of listThemes">   
+          <mat-icon>{{theme.icon}}</mat-icon>  
+          <a matLine href="...">{{ theme.name }}</a> 
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+    <div class="block-categories">
+      <h5 class="title-sidenav">CATEGORIES</h5>
+    </div>
   </mat-drawer>
-
   <mat-drawer-content>
     <!-- <button type="button" mat-button (click)="drawer.toggle()">
       Toggle
