@@ -18,31 +18,31 @@ export class AppComponent implements OnInit {
         id:1,
         name:'Filled',
         icon:'home',
-        link:'/filled',
+        link:'filled',
       },
       {
         id:2,
         name:'Outlined',
         icon:'crop_square',
-        link:'/outlined',
+        link:'outlined',
       },
       {
         id:3,
         name:'Rounded',
         icon:'lens',
-        link:'/',
+        link:'outlined',
       },
       {
         id:4,
         name:'Two-tone',
         icon:'home',
-        link:'/',
+        link:'home',
       },
       {
         id:5,
         name:'Sharp',
         icon:'home',
-        link:'/',
+        link:'home',
       }
     ];
     this.listCategories=[

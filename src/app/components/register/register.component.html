@@ -1,1 +1,27 @@
-<p>register works!</p>
+<form class="example-form"  fxLayout="row wrap" [formGroup]="userForm" (ngSubmit)="register(userForm)">
+    <div fxFlex=50>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Ingresar Nombres" value="" formControlName="name">
+        </mat-form-field> <br>
+    
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Ingresar Correo" value="" formControlName="email">
+        </mat-form-field> <br>
+    
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Ingresar Contraseña" value="" type="password" formControllName="password">
+        </mat-form-field> <br>
+    
+        <mat-form-field class="example-full-width">
+            <input matInput [max]="date" [matDatepicker]="picker" placeholder="Fecha de Nacimiento" fromControlName="birthDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <br>
+
+        <button mat-raised-button color="warn">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" >Registrase</button>
+    </div>
+    
+</form>
