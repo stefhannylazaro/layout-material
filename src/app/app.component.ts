@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-
+import {FormControl} from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +9,7 @@ export class AppComponent implements OnInit {
   title = 'layout-material';
   public listThemes:Array<any>;
   public listCategories:Array<any>;
+  public selectedCategory= new FormControl('0');//propiedad select
   constructor(){
   }
   ngOnInit(){
@@ -22,13 +23,13 @@ export class AppComponent implements OnInit {
       {
         id:2,
         name:'Outlined',
-        icon:'home',
+        icon:'crop_square',
         link:'/',
       },
       {
         id:3,
         name:'Rounded',
-        icon:'home',
+        icon:'lens',
         link:'/',
       },
       {
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
       }
     ];
     this.listCategories=[
-      {name:'all',value:''},
+      {name:'all',value:'0'},
       {name:'Action',value:'1'},
       {name:'Alert',value:'2'},
       {name:'Av',value:'3'},

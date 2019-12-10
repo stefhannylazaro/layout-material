@@ -10,17 +10,26 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" opened>
     <div class="block-themes">
-      <h5 class="title-sidenav">THEME</h5>
+      <h5 class="title-sidenav" class="px-16">THEME</h5>
       <mat-nav-list>
         <mat-list-item *ngFor="let theme of listThemes">   
           <mat-icon>{{theme.icon}}</mat-icon>  
-          <a matLine href="...">{{ theme.name }}</a> 
+          <a href="...">{{ theme.name }}</a>
         </mat-list-item>
       </mat-nav-list>
+      <mat-divider></mat-divider>
     </div>
-    <div class="block-categories">
+    <div class="block-categories px-16">
       <h5 class="title-sidenav">CATEGORIES</h5>
+      <mat-form-field>
+          <mat-select [formControl]="selectedCategory">
+            <mat-option *ngFor="let category of listCategories" [value]="category.value">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
     </div>
+    <mat-divider></mat-divider>
   </mat-drawer>
   <mat-drawer-content>
     <!-- <button type="button" mat-button (click)="drawer.toggle()">

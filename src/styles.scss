@@ -1,8 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;font-size: 15px; }
 
+/*sidenav*/
 .example-container{
     height: 100%;
+}
+.mat-drawer{
+    width: 250px;
+}
+.title-sidenav{
+    font-size: 13px;
+    color:#555;
+}
+.px-16{
+    padding: 0 16px;
 }
