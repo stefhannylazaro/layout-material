@@ -14,7 +14,7 @@
       <mat-nav-list>
         <mat-list-item *ngFor="let theme of listThemes">   
           <mat-icon>{{theme.icon}}</mat-icon>  
-          <a href="...">{{ theme.name }}</a>
+          <a>{{ theme.name }}</a>
         </mat-list-item>
       </mat-nav-list>
       <mat-divider></mat-divider>
@@ -35,14 +35,7 @@
     <!-- <button type="button" mat-button (click)="drawer.toggle()">
       Toggle
     </button> -->
-    <div fxLayout="row wrap">
-      <div fxFlex="50">
-        1
-      </div>
-      <div  fxFlex="50">
-        2
-      </div>
-    </div>
+    <router-outlet></router-outlet>
   </mat-drawer-content>
 
 </mat-drawer-container>

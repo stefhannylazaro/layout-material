@@ -18,13 +18,13 @@ export class AppComponent implements OnInit {
         id:1,
         name:'Filled',
         icon:'home',
-        link:'/',
+        link:'/filled',
       },
       {
         id:2,
         name:'Outlined',
         icon:'crop_square',
-        link:'/',
+        link:'/outlined',
       },
       {
         id:3,
