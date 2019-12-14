@@ -18,38 +18,33 @@
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-    <div class="theme-block">
-      <h5 class="title-sidenav px-16">THEMES</h5>
+    <div class="block-themes">
+      <h5 class="title-sidenav" class="px-16">THEME</h5>
       <mat-nav-list>
-        <mat-list-item *ngFor="let link of linksTheme">
-          <a matLine href="javascript:void(0)">{{ link.text }}</a>
-          <button mat-icon-button>
-              <mat-icon>{{link.icon}}</mat-icon>
-          </button>
+        <mat-list-item *ngFor="let theme of listThemes">   
+          <mat-icon>{{theme.icon}}</mat-icon>  
+          <a [routerLink]="[theme.link]">{{ theme.name }}</a>
         </mat-list-item>
       </mat-nav-list>
       <mat-divider></mat-divider>
     </div>
-    <div class="categories-block px-16">
-      <h5 class="title-sidenav">THEMES</h5>
-      <mat-select [formControl]="categorie">
-        <mat-option *ngFor="let categorie of categories" [value]="categorie.value">
-              {{categorie.name}}
-        </mat-option>
-      </mat-select>
+    <div class="block-categories px-16">
+      <h5 class="title-sidenav">CATEGORIES</h5>
+      <mat-form-field>
+          <mat-select [formControl]="selectedCategory">
+            <mat-option *ngFor="let category of listCategories" [value]="category.value">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
     </div>
     <mat-divider></mat-divider>
   </mat-drawer>
-
   <mat-drawer-content>
-    <div fxLayout="row wrap" fxLayout.xs="column">
-      <div fxFlex="50">
-        1
-      </div>
-      <div  fxFlex="50">
-        2
-      </div>
-    </div>
+    <!-- <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle
+    </button> -->
+    <router-outlet></router-outlet>
   </mat-drawer-content>
 
 </mat-drawer-container>
