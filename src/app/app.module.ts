@@ -16,7 +16,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { C404Component } from './components/c404/c404.component';
 import { FilledComponent } from './components/filled/filled.component';
 import { OutlinedComponent } from './components/outlined/outlined.component';
-
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent } from './components/map/map.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { OutlinedComponent } from './components/outlined/outlined.component';
     ProfileComponent,
     C404Component,
     FilledComponent,
-    OutlinedComponent
+    OutlinedComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,10 @@ import { OutlinedComponent } from './components/outlined/outlined.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCEJC_57AXERmIVYMKUlLf1XdmTz1UYK8I'
+      })
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

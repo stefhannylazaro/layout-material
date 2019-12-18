@@ -8,6 +8,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {C404Component} from './components/c404/c404.component';
 import {FilledComponent} from './components/filled/filled.component';
 import {OutlinedComponent} from './components/outlined/outlined.component';
+import {MapComponent} from './components/map/map.component';
 
 const route:Routes=[
     {path:'',component:HomeComponent},
@@ -17,7 +18,9 @@ const route:Routes=[
     {path:'profile',component:ProfileComponent},
     {path:'filled',component:FilledComponent},
     {path:'outlined',component:OutlinedComponent},
+    {path:'map',component:MapComponent},
     {path:'**',component:C404Component}
+    
 ];
 
 export const appRoutingProviders:any[] = [];
