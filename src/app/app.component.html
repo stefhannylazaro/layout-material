@@ -8,7 +8,9 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+  <mat-drawer #drawer class="example-sidenav" 
+    [mode]="isSmallObs? 'over':'side'"
+    [opened]="!isSmallObs">
     <div class="block-themes">
       <h5 class="title-sidenav" class="px-16">THEME</h5>
       <mat-nav-list>

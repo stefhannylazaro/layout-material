@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,8 +12,18 @@ export class AppComponent implements OnInit {
   public listThemes:Array<any>;
   public listCategories:Array<any>;
   public selectedCategory= new FormControl('0');//propiedad select
-  constructor(){
+  public isSmall:boolean;
+  public isSmallObs:boolean=false;
+  constructor(breakpointObserver:BreakpointObserver){
+    //this.isSmall=breakpointObserver.isMatched('(max-width:500px)');
+    breakpointObserver.observe(Breakpoints.Handset).subscribe(
+      (result)=>{
+        console.log(result.matches);
+        this.isSmallObs=result.matches;
+      }
+    );
   }
+ 
   ngOnInit(){
     this.listThemes=[
       {
