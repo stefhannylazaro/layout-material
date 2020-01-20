@@ -42,7 +42,8 @@ import { MapComponent } from './components/map/map.component';
     ReactiveFormsModule,
     routing,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCEJC_57AXERmIVYMKUlLf1XdmTz1UYK8I'
+      apiKey: 'AIzaSyCEJC_57AXERmIVYMKUlLf1XdmTz1UYK8I',
+      libraries: ["places", "geometry"]
     })
   ],
   providers: [appRoutingProviders],

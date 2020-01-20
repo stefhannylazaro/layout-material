@@ -1,11 +1,14 @@
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="type">
-    <agm-marker *ngFor="let marker of markers" 
+    <agm-marker *ngFor="let marker of markers; let i=index" 
         [latitude]="marker.lat"
         [longitude]="marker.lng"
         [label]="marker.label"
         (markerClick)="selectMarker($event)"
         [markerDraggable]="true"
-        (dragEnd)="markerDragEnd(marker, $event)">
+        (dragEnd)="markerDragEnd(marker, $event, i)">
+        <agm-info-window >
+            <strong>{{marker.label}}</strong>
+        </agm-info-window>
     </agm-marker>
 </agm-map>
 <span *ngIf="selectedMarker"> lat: {{ selectedMarker.lat }} lng: {{ selectedMarker.lng }}
