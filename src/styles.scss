@@ -1,3 +1,4 @@
+// @import './sass/variables';
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
@@ -17,3 +18,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;font-size: 1
 .px-16{
     padding: 0 16px;
 }
+/*Definir variables*/
+// $color-primario: rgb(40, 158, 158);
+// $color-secundario: #ccc;
