@@ -2,6 +2,13 @@ import { Component,OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
+
+import { Observable, Subject, asapScheduler, pipe, of, from,
+  interval, merge, fromEvent } from 'rxjs';
+import { map, filter, mergeMap } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,7 +21,12 @@ export class AppComponent implements OnInit {
   public selectedCategory= new FormControl('0');//propiedad select
   public isSmall:boolean;
   public isSmallObs:boolean=false;
-  constructor(breakpointObserver:BreakpointObserver){
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title,
+    breakpointObserver:BreakpointObserver
+    ){
     //this.isSmall=breakpointObserver.isMatched('(max-width:500px)');
     breakpointObserver.observe(Breakpoints.Handset).subscribe(
       (result)=>{
@@ -25,6 +37,34 @@ export class AppComponent implements OnInit {
   }
  
   ngOnInit(){
+    // this.router.events
+    // .subscribe((event) => {
+    //     console.log('NavigationEnd:', event);
+    // });
+
+    // this.router.events
+    // .filter((event) => event instanceof NavigationEnd)
+    // .subscribe((event) => {
+    //   console.log('NavigationEnd:', event);
+    // });
+    
+    // this.router.events.pipe(
+    //   filter((event:Event) => event instanceof NavigationEnd)
+    // ).subscribe(x => console.log(x))
+
+    this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => this.activatedRoute),
+        map((route) => {
+          while (route.firstChild) route = route.firstChild;
+          return route;
+        }),
+        filter((route) => route.outlet === 'primary'),
+        mergeMap((route) => route.data)
+      ).subscribe(event => {
+        console.log('NavigationEnd:',event);
+        this.titleService.setTitle(event['title']);
+      });
     this.listThemes=[
       {
         id:1,
